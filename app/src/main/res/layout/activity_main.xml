@@ -16,6 +16,7 @@
             app:layout_constraintBottom_toTopOf="@id/fragment_navbar" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"/>
     <fragment
+            android:name="com.example.novelreader.NavbarFragment"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:id="@+id/fragment_navbar"
