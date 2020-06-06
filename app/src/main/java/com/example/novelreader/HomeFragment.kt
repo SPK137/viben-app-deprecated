@@ -7,31 +7,44 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment(){
 
-    private lateinit var recyclerView: RecyclerView
-    private lateinit var viewAdapter: RecyclerView.Adapter<*>
-    private lateinit var viewManager: RecyclerView.LayoutManager
-    private val myDataSet = arrayOf("Author1","Author2","Author3","Author4","Author5","Author6","Author7","Author8")
+    private lateinit var authorListRecyclerView: RecyclerView
+    private lateinit var authorListViewAdapter: RecyclerView.Adapter<*>
+    private lateinit var authorListViewManager: RecyclerView.LayoutManager
+    private val dummyAuthorList = arrayOf("Author1","Author2","Author3","Author4","Author5","Author6","Author7","Author8")
+
+    private lateinit var bookListRecyclerView: HorizontalCarouselRecyclerView
+    private lateinit var bookListViewAdapter: RecyclerView.Adapter<*>
+    private lateinit var bookListViewManager: RecyclerView.LayoutManager
+    private val dummyBookList = arrayOf(R.drawable.hp_4, R.drawable.hp_4,R.drawable.hp_7, R.drawable.hp_7)
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
-        viewManager = LinearLayoutManager(this.context, RecyclerView.HORIZONTAL, false)
-        viewAdapter = AuthorListAdapter(myDataSet)
+        authorListViewManager = LinearLayoutManager(this.context, RecyclerView.HORIZONTAL, false)
+        authorListViewAdapter = AuthorListAdapter(dummyAuthorList)
 
-        recyclerView = view.findViewById<RecyclerView>(R.id.recycler_view_author_list).apply {
+        authorListRecyclerView = view.findViewById<RecyclerView>(R.id.recycler_view_author_list).apply {
             // use this setting to improve performance if you know that changes
             // in content do not change the layout size of the RecyclerView
             setHasFixedSize(true)
 
             // use a linear layout manager
-            layoutManager = viewManager
+            layoutManager = authorListViewManager
 
             // specify an viewAdapter (see also next example)
-            adapter = viewAdapter
+            adapter = authorListViewAdapter
 
         }
+
+
+        bookListViewAdapter = BookListAdapter(dummyBookList)
+        bookListRecyclerView = view.findViewById(R.id.carousel_book_list)
+        bookListRecyclerView.initialize(bookListViewAdapter)
+        bookListRecyclerView.setViewsToChangeColor(listOf(R.id.image_book))
+
         return view
     }
 

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ImageView xmlns:android="http://schemas.android.com/apk/res/android"
+           android:id="@+id/image_book"
+           android:layout_width="210sp"
+           android:layout_height="300sp"
+           android:adjustViewBounds="true"
+           android:src="@drawable/round_info_black_18dp"
+           >
+
+</ImageView>
