@@ -1,20 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
-    <androidx.recyclerview.widget.RecyclerView
-            android:layout_height="wrap_content" android:layout_width="match_parent"
-    />
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBackground">
+
+    <RelativeLayout
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+    >
+        <androidx.recyclerview.widget.RecyclerView
+                android:layout_height="wrap_content" android:layout_width="match_parent"
+                android:id="@+id/recycler_view_book_list"/>
+        <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/grid_book_button_panel"
+                android:layout_below="@id/recycler_view_book_list"
+                android:columnCount="2"
+                android:layout_marginStart="50sp"
+                android:layout_marginEnd="50sp">
+            <RatingBar
+                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:numStars="5"
+                    android:stepSize="1"
+                    style="@style/RatingBarTheme"/>
+            <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill|center_horizontal"
+                    android:textColor="@color/colorText"
+                    android:text="Genre"/>
+            <com.google.android.material.button.MaterialButton
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:text="@string/button_add_book"
+                    style="@style/Widget.MaterialComponents.Button"
+                    android:textColor="@color/colorText"
+                    android:textSize="12sp"
+                    app:cornerRadius="20sp"
+                    app:iconSize="20sp"
+                    app:icon="@drawable/round_add_white_18dp"/>
+            <com.google.android.material.button.MaterialButton
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_row="1"
+                    android:layout_column="1"
+                    android:text="@string/button_info_book"
+                    style="@style/Widget.MaterialComponents.Button"
+                    android:textColor="@color/colorText"
+                    android:textSize="12sp"
+                    app:cornerRadius="20sp"
+                    app:iconSize="20sp"
+                    app:icon="@drawable/round_info_black_18dp"/>
+
+        </GridLayout>
+    </RelativeLayout>
     <LinearLayout
             android:layout_height="wrap_content" android:layout_width="match_parent"
             android:layout_weight="1"
             android:orientation="vertical">
         <TextView
-                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_height="wrap_content" android:layout_width="match_parent"
+                android:textColor="@color/colorText"
+                android:padding="8sp"
                 android:text="@string/recyclerView_author_publisher"/>
         <androidx.recyclerview.widget.RecyclerView
-                android:layout_height="0dp" android:layout_width="0dp"
+                android:layout_height="wrap_content" android:layout_width="match_parent"
+                android:id="@+id/recycler_view_author_list"
         />
     </LinearLayout>
 </LinearLayout>

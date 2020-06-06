@@ -3,5 +3,7 @@
     <string name="navbar_button_one">Home</string>
     <string name="navbar_button_two">Two</string>
     <string name="navbar_button_three">Three</string>
+    <string name="button_add_book">Add to my list</string>
+    <string name="button_info_book">More info</string>
     <string name="recyclerView_author_publisher">Authors/Publishers</string>
 </resources>
