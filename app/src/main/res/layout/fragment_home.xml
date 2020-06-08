@@ -1,114 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
+<ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_height="match_parent"
-        android:background="@color/colorBackground">
+        android:layout_width="match_parent" android:scrollbarStyle="insideOverlay">
+    <LinearLayout
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-    >
-        <com.example.novelreader.HorizontalCarouselRecyclerView
-                android:id="@+id/carousel_book_list"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:clipToPadding="false"
-                android:overScrollMode="never"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/grid_book_button_panel"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"/>
-        <GridLayout
-                android:id="@+id/grid_book_button_panel"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:columnCount="3"
-                android:layout_marginStart="20sp"
-                android:layout_marginEnd="20sp">
-            <FrameLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorBackground">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+        >
+            <com.example.novelreader.HorizontalCarouselRecyclerView
+                    android:id="@+id/carousel_book_list"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_width="0dp"
-                    android:layout_marginTop="10sp"
-                    android:layout_columnWeight="1"
-                    android:layout_gravity="fill"
-                    android:paddingStart="5sp"
-                    android:paddingEnd="5sp">
-                <RatingBar
+                    android:clipToPadding="false"
+                    android:overScrollMode="never"
+                    android:layout_marginBottom="50sp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+            <GridLayout
+                    android:id="@+id/grid_book_button_panel"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:columnCount="3"
+                    android:layout_marginStart="30sp"
+                    android:layout_marginEnd="30sp">
+                <FrameLayout
+                        android:layout_height="wrap_content"
+                        android:layout_width="0dp"
+                        android:layout_marginTop="10sp"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:paddingStart="5sp"
+                        android:paddingEnd="5sp">
+                    <RatingBar
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            android:layout_gravity="end|bottom"
+                            android:numStars="5"
+                            android:rating="5"
+                            style="@style/RatingBarTheme"/>
+
+                </FrameLayout>
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
                         android:layout_height="wrap_content"
                         android:layout_width="wrap_content"
-                        android:layout_gravity="end|bottom"
-                        android:numStars="5"
-                        android:rating="5"
-                        style="@style/RatingBarTheme"/>
+                        android:layout_marginStart="5sp"
+                        android:layout_marginEnd="5sp"
+                        style="@style/HomeFABTheme"
+                        app:srcCompat="@drawable/round_menu_book_white_18dp"
+                        android:background="@color/colorPrimaryDark"
+                        android:layout_rowSpan="2"
+                />
+                <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_width="0dp"
+                        android:layout_marginTop="10sp"
+                        android:layout_columnWeight="1"
+                        android:paddingStart="5sp"
+                        android:paddingEnd="5sp"
+                        android:textColor="@color/colorText"
+                        android:gravity="start|fill"
+                        android:text="Genre"/>
+                <com.google.android.material.button.MaterialButton
+                        android:layout_height="wrap_content"
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:layout_row="1"
+                        android:layout_column="0"
+                        android:layout_gravity="fill"
+                        android:text="@string/button_add_book"
+                        style="@style/BookButtonTheme"
+                        android:textSize="12sp"
+                        app:cornerRadius="20sp"
+                        app:iconSize="20sp"
+                        app:icon="@drawable/round_add_white_18dp"/>
+                <com.google.android.material.button.MaterialButton
+                        android:layout_height="wrap_content"
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:layout_row="1"
+                        android:layout_column="2"
+                        android:layout_gravity="fill"
+                        android:text="@string/button_info_book"
+                        style="@style/BookButtonTheme"
+                        android:textColor="@color/colorText"
+                        android:textSize="12sp"
+                        app:cornerRadius="20sp"
+                        app:iconSize="15sp"
+                        app:icon="@drawable/round_info_black_18dp"/>
 
-            </FrameLayout>
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:layout_marginStart="5sp"
-                    android:layout_marginEnd="5sp"
-                    app:srcCompat="@drawable/round_import_contacts_white_18dp"
-                    android:background="@color/colorPrimary"
-                    android:layout_rowSpan="2"
-                    />
+            </GridLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <View android:id="@+id/tile_divider"
+              android:layout_width="match_parent"
+              android:layout_height="1dp"
+              android:layout_margin="10sp"
+              android:background="?android:attr/dividerVertical"/>
+        <LinearLayout
+                android:layout_height="wrap_content" android:layout_width="match_parent"
+                android:layout_gravity="bottom"
+                android:orientation="vertical">
             <TextView
-                    android:layout_height="wrap_content"
-                    android:layout_width="0dp"
-                    android:layout_marginTop="10sp"
-                    android:layout_columnWeight="1"
-                    android:paddingStart="5sp"
-                    android:paddingEnd="5sp"
+                    android:layout_height="wrap_content" android:layout_width="match_parent"
                     android:textColor="@color/colorText"
-                    android:gravity="start|fill"
-                    android:text="Genre"/>
-            <com.google.android.material.button.MaterialButton
-                    android:layout_height="wrap_content"
-                    android:layout_width="0dp"
-                    android:layout_columnWeight="1"
-                    android:layout_row="1"
-                    android:layout_column="0"
-                    android:layout_gravity="fill"
-                    android:text="@string/button_add_book"
-                    style="@style/Widget.MaterialComponents.Button"
-                    android:textColor="@color/colorText"
-                    android:textSize="12sp"
-                    app:cornerRadius="20sp"
-                    app:iconSize="20sp"
-                    app:icon="@drawable/round_add_white_18dp"/>
-            <com.google.android.material.button.MaterialButton
-                    android:layout_height="wrap_content"
-                    android:layout_width="0dp"
-                    android:layout_columnWeight="1"
-                    android:layout_row="1"
-                    android:layout_column="2"
-                    android:layout_gravity="fill"
-                    android:text="@string/button_info_book"
-                    style="@style/Widget.MaterialComponents.Button"
-                    android:textColor="@color/colorText"
-                    android:textSize="12sp"
-                    app:cornerRadius="20sp"
-                    app:iconSize="20sp"
-                    app:icon="@drawable/round_info_black_18dp"/>
-
-        </GridLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
-    <LinearLayout
-            android:layout_height="wrap_content" android:layout_width="match_parent"
-            android:layout_gravity="bottom"
-            android:orientation="vertical">
-        <TextView
-                android:layout_height="wrap_content" android:layout_width="match_parent"
-                android:textColor="@color/colorText"
-                android:padding="8sp"
-                android:text="@string/recyclerView_author_publisher"/>
-        <androidx.recyclerview.widget.RecyclerView
-                android:layout_height="wrap_content" android:layout_width="match_parent"
-                android:id="@+id/recycler_view_author_list"
-        />
+                    android:padding="8sp"
+                    android:text="@string/recyclerView_author_publisher"/>
+            <androidx.recyclerview.widget.RecyclerView
+                    android:layout_height="wrap_content" android:layout_width="match_parent"
+                    android:id="@+id/recycler_view_author_list"
+            />
+        </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+</ScrollView>

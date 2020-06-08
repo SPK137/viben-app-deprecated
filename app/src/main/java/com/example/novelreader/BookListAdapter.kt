@@ -1,5 +1,6 @@
 package com.example.novelreader
 
+import android.content.ClipData
 import android.media.Image
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -8,8 +9,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.card.MaterialCardView
 
-class BookListAdapter(private val myDataSet : Array<Int>) : RecyclerView.Adapter<BookListAdapter.MyViewHolder>() {
+class BookListAdapter() : RecyclerView.Adapter<BookListAdapter.MyViewHolder>() {
 
+    private lateinit var myDataSet : List<Int>
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
     // you provide access to all the views for a data item in a view holder.
@@ -27,6 +29,11 @@ class BookListAdapter(private val myDataSet : Array<Int>) : RecyclerView.Adapter
         return MyViewHolder(imageView)
     }
 
+    fun setItems(newDataSet: List<Int>) {
+        myDataSet = newDataSet
+        notifyDataSetChanged()
+    }
+
     // Replace the contents of a view (invoked by the layout manager)
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         // - get element from your dataset at this position
@@ -36,4 +43,6 @@ class BookListAdapter(private val myDataSet : Array<Int>) : RecyclerView.Adapter
 
     // Return the size of your dataset (invoked by the layout manager)
     override fun getItemCount() = myDataSet.size
+
+
 }

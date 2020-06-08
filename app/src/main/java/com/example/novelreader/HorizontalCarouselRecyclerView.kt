@@ -2,30 +2,35 @@ package com.example.novelreader
 
 import android.content.Context
 import android.graphics.ColorMatrix
-import android.graphics.ColorMatrixColorFilter
 import android.util.AttributeSet
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.SnapHelper
 import androidx.vectordrawable.graphics.drawable.ArgbEvaluator
 import kotlin.math.pow
+
 
 class HorizontalCarouselRecyclerView(context: Context, attrs: AttributeSet) : RecyclerView(context, attrs) {
 
     private val activeColor
-            by lazy { ContextCompat.getColor(context, R.color.colorText) }
+            by lazy { ContextCompat.getColor(context, R.color.colorPrimaryDark) }
     private val inactiveColor
             by lazy { ContextCompat.getColor(context, R.color.colorBackground) }
     private var viewsToChangeColor = listOf<Int>()
 
     fun <T : ViewHolder> initialize(newAdapter: Adapter<T>) {
         layoutManager = LinearLayoutManager(context, HORIZONTAL, false)
+        Log.d("debug","initialize function invoked")
         newAdapter.registerAdapterDataObserver(object: RecyclerView.AdapterDataObserver() {
             override fun onChanged() {
                 post {
+                    Log.d("debug","onChanged invoked")
                     val sidePadding = (width/2) - (getChildAt(0).width/2)
                     setPadding(sidePadding,0,sidePadding,0)
                     addOnScrollListener(object: OnScrollListener() {
@@ -42,12 +47,14 @@ class HorizontalCarouselRecyclerView(context: Context, attrs: AttributeSet) : Re
 
     private fun onScrollChanged() {
         post {
+            Log.d("debug","test")
             (0 until childCount).forEach {position ->
                 val child = getChildAt(position)
                 val childCenterX = (child.left + child.right) / 2
-                val scaleValue = getGaussianScale(childCenterX, 1f, 1f, 150.toDouble())
+                val scaleValue = getGaussianScale(childCenterX, 0.85f, 0.2f, 250.toDouble())
                 child.scaleX = scaleValue
                 child.scaleY = scaleValue
+                //child.y = child.y-scaleValue.toInt()
                 colorView(child, scaleValue)
             }
         }
@@ -68,7 +75,7 @@ class HorizontalCarouselRecyclerView(context: Context, attrs: AttributeSet) : Re
         viewsToChangeColor = viewIds
     }
 
-    fun colorView(child: View, scaleValue: Float) {
+    private fun colorView(child: View, scaleValue: Float) {
         val saturationPercent  = (scaleValue - 1) / 1f
         val alphaPercent = scaleValue / 1f
         val matrix = ColorMatrix()
@@ -77,8 +84,8 @@ class HorizontalCarouselRecyclerView(context: Context, attrs: AttributeSet) : Re
         viewsToChangeColor.forEach { viewId ->
             when (val viewToChangeColor = child.findViewById<View>(viewId)) {
                 is ImageView -> {
-                    viewToChangeColor.colorFilter = ColorMatrixColorFilter(matrix)
-                    viewToChangeColor.imageAlpha = (255 * alphaPercent).toInt()
+                    //viewToChangeColor.colorFilter = ColorMatrixColorFilter(matrix)
+                    //viewToChangeColor.imageAlpha = (255 * alphaPercent).toInt()
                 }
                 is TextView -> {
                 val textColor = ArgbEvaluator().evaluate(saturationPercent, inactiveColor, activeColor) as Int

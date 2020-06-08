@@ -3,7 +3,9 @@
            android:id="@+id/image_book"
            android:layout_width="210sp"
            android:layout_height="300sp"
-           android:adjustViewBounds="true"
+           android:layout_marginTop="24sp"
+           android:layout_marginBottom="24sp"
+           android:paddingBottom="50sp"
            android:src="@drawable/round_info_black_18dp"
            >
 

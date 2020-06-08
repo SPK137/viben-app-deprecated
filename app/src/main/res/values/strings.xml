@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Novel Reader</string>
     <string name="navbar_button_one">Home</string>
-    <string name="navbar_button_two">Two</string>
-    <string name="navbar_button_three">Three</string>
+    <string name="navbar_button_two">Favorite</string>
+    <string name="navbar_button_three">Profile</string>
     <string name="button_add_book">My book</string>
     <string name="button_info_book">More info</string>
     <string name="recyclerView_author_publisher">Authors/Publishers</string>

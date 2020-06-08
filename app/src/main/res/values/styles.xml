@@ -7,8 +7,35 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+    <style name="BookButtonTheme" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="strokeColor">@color/colorPrimary</item>
+        <item name="strokeWidth">3dp</item>
+        <item name="android:background">#000000</item>
+    </style>
     <style name="RatingBarTheme" parent="@style/Widget.AppCompat.RatingBar.Small">
         <item name="colorControlNormal">@color/colorText</item>
         <item name="colorControlActivated">@color/starActivated</item>
+    </style>
+    <style name="NavbarFABTheme" parent="Widget.MaterialComponents.FloatingActionButton">
+        <item name="backgroundTint">@color/colorPrimary</item>
+        <item name="maxImageSize">36sp</item>
+        <item name="tint">@color/colorPrimaryDark</item>
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.App.SmallComponent</item>
+    </style>
+    <style name="NavbarTheme" parent="Widget.AppCompat.ImageButton">
+        <item name="android:background">#00000000</item>
+        <item name="android:paddingBottom">10sp</item>
+        <item name="tint">@color/colorPrimary</item>
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.App.SmallComponent</item>
+    </style>
+    <style name="HomeFABTheme" parent="Widget.MaterialComponents.FloatingActionButton">
+        <item name="backgroundTint">@color/colorPrimaryDark</item>
+        <item name="tint">@color/colorPrimary</item>
+        <item name="maxImageSize">35sp</item>
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.App.SmallComponent</item>
+    </style>
+    <style name="ShapeAppearance.App.SmallComponent" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">cut</item>
+        <item name="cornerSize">4dp</item>
     </style>
 </resources>
