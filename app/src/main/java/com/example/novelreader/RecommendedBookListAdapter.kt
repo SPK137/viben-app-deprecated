@@ -22,7 +22,7 @@ class RecommendedBookListAdapter(private val myDataSet : List<Int>) : RecyclerVi
                                     viewType: Int): RecommendedBookListAdapter.MyViewHolder {
         // create a new view
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.card_book, parent, false) as View
+            .inflate(R.layout.card_recommended_book, parent, false) as View
         // set the view's size, margins, paddings and layout parameters
 
         return MyViewHolder(view)
