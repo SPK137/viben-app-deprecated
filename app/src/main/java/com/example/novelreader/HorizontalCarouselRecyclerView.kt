@@ -51,10 +51,10 @@ class HorizontalCarouselRecyclerView(context: Context, attrs: AttributeSet) : Re
             (0 until childCount).forEach {position ->
                 val child = getChildAt(position)
                 val childCenterX = (child.left + child.right) / 2
-                val scaleValue = getGaussianScale(childCenterX, 0.85f, 0.2f, 250.toDouble())
+                val scaleValue = getGaussianScale(childCenterX, 0.9f, 0.1f, 250.toDouble())
+                child.pivotY = child.bottom.toFloat()
                 child.scaleX = scaleValue
                 child.scaleY = scaleValue
-                //child.y = child.y-scaleValue.toInt()
                 colorView(child, scaleValue)
             }
         }

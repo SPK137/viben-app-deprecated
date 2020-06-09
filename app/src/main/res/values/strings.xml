@@ -6,4 +6,5 @@
     <string name="button_add_book">My book</string>
     <string name="button_info_book">More info</string>
     <string name="recyclerView_author_publisher">Authors/Publishers</string>
+    <string name="recyclerView_recommendation">Recommended books</string>
 </resources>

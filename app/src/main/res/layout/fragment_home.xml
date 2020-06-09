@@ -102,11 +102,6 @@
 
             </GridLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
-        <View android:id="@+id/tile_divider"
-              android:layout_width="match_parent"
-              android:layout_height="1dp"
-              android:layout_margin="10sp"
-              android:background="?android:attr/dividerVertical"/>
         <LinearLayout
                 android:layout_height="wrap_content" android:layout_width="match_parent"
                 android:layout_gravity="bottom"
@@ -119,6 +114,15 @@
             <androidx.recyclerview.widget.RecyclerView
                     android:layout_height="wrap_content" android:layout_width="match_parent"
                     android:id="@+id/recycler_view_author_list"
+            />
+            <TextView
+                    android:layout_height="wrap_content" android:layout_width="match_parent"
+                    android:textColor="@color/colorText"
+                    android:padding="8sp"
+                    android:text="@string/recyclerView_recommendation"/>
+            <androidx.recyclerview.widget.RecyclerView
+                    android:layout_height="wrap_content" android:layout_width="match_parent"
+                    android:id="@+id/recycler_view_recommended_book_list"
             />
         </LinearLayout>
     </LinearLayout>

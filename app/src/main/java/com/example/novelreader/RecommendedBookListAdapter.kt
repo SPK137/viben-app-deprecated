@@ -1,18 +1,16 @@
 package com.example.novelreader
 
-import android.content.ClipData
-import android.media.Image
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.card.MaterialCardView
 
-class BookListAdapter() : RecyclerView.Adapter<BookListAdapter.MyViewHolder>() {
 
-    private lateinit var myDataSet : List<Int>
+class RecommendedBookListAdapter(private val myDataSet : List<Int>) : RecyclerView.Adapter<RecommendedBookListAdapter.MyViewHolder>() {
+
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
     // you provide access to all the views for a data item in a view holder.
@@ -21,18 +19,13 @@ class BookListAdapter() : RecyclerView.Adapter<BookListAdapter.MyViewHolder>() {
 
     // Create new views (invoked by the layout manager)
     override fun onCreateViewHolder(parent: ViewGroup,
-                                    viewType: Int): MyViewHolder {
+                                    viewType: Int): RecommendedBookListAdapter.MyViewHolder {
         // create a new view
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.card_book, parent, false) as View
         // set the view's size, margins, paddings and layout parameters
 
         return MyViewHolder(view)
-    }
-
-    fun setItems(newDataSet: List<Int>) {
-        myDataSet = newDataSet
-        notifyDataSetChanged()
     }
 
     // Replace the contents of a view (invoked by the layout manager)
@@ -44,6 +37,4 @@ class BookListAdapter() : RecyclerView.Adapter<BookListAdapter.MyViewHolder>() {
 
     // Return the size of your dataset (invoked by the layout manager)
     override fun getItemCount() = myDataSet.size
-
-
 }

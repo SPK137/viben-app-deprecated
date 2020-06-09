@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ImageView xmlns:android="http://schemas.android.com/apk/res/android"
-           android:id="@+id/image_book"
-           android:layout_width="210sp"
-           android:layout_height="300sp"
-           android:layout_marginTop="24sp"
-           android:layout_marginBottom="24sp"
-           android:paddingBottom="50sp"
-           android:src="@drawable/round_info_black_18dp"
-           >
-
-</ImageView>
+<com.google.android.material.card.MaterialCardView
+        xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="200dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="70dp"
+        android:gravity="center_horizontal"
+        app:cardElevation="20dp"
+        app:cardPreventCornerOverlap="false"
+        app:cardCornerRadius="16dp"
+>
+    <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/image_book"
+            android:src="@drawable/hp_4"
+            android:scaleType="centerCrop"
+            />
+</com.google.android.material.card.MaterialCardView>

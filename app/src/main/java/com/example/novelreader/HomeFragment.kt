@@ -22,6 +22,10 @@ class HomeFragment : Fragment(){
     private val bookListViewAdapter = BookListAdapter()
     private val dummyBookList = listOf(R.drawable.hp_4, R.drawable.hp_4,R.drawable.hp_7, R.drawable.hp_7)
 
+    private lateinit var recommendedBookListRecyclerView: RecyclerView
+    private lateinit var recommendedBookListViewAdapter: RecommendedBookListAdapter
+    private lateinit var recommendedBookListViewManager: RecyclerView.LayoutManager
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
         authorListViewManager = LinearLayoutManager(this.context, RecyclerView.HORIZONTAL, false)
@@ -46,6 +50,22 @@ class HomeFragment : Fragment(){
         bookListRecyclerView.initialize(bookListViewAdapter)
         bookListRecyclerView.setViewsToChangeColor(listOf(R.id.image_book))
         bookListViewAdapter.setItems(dummyBookList)
+
+        recommendedBookListViewManager = LinearLayoutManager(this.context, RecyclerView.HORIZONTAL, false)
+        recommendedBookListViewAdapter = RecommendedBookListAdapter(dummyBookList)
+
+        recommendedBookListRecyclerView = view.findViewById<RecyclerView>(R.id.recycler_view_recommended_book_list).apply {
+            // use this setting to improve performance if you know that changes
+            // in content do not change the layout size of the RecyclerView
+            setHasFixedSize(true)
+
+            // use a linear layout manager
+            layoutManager = recommendedBookListViewManager
+
+            // specify an viewAdapter (see also next example)
+            adapter = recommendedBookListViewAdapter
+
+        }
 
         return view
     }
