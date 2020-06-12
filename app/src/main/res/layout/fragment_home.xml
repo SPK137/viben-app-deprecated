@@ -14,7 +14,26 @@
         <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
+                android:layout_marginBottom="25dp"
         >
+            <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:background="#00000000"
+                    android:src="@drawable/round_search_white_18dp"/>
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:backgroundTint="@color/colorPrimaryDark"
+                    app:borderWidth="0dp"
+                    app:tint="@color/colorPrimary"
+                    android:src="@drawable/round_menu_white_18dp"/>
             <com.example.novelreader.HorizontalCarouselRecyclerView
                     android:id="@+id/carousel_book_list"
                     android:layout_width="match_parent"
@@ -33,30 +52,33 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     android:columnCount="3"
-                    android:layout_marginStart="30sp"
-                    android:layout_marginEnd="30sp">
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginStart="70dp"
+                    android:layout_marginEnd="70dp">
                 <FrameLayout
                         android:layout_height="wrap_content"
                         android:layout_width="0dp"
-                        android:layout_marginTop="10sp"
+                        android:layout_marginTop="15dp"
                         android:layout_columnWeight="1"
                         android:layout_gravity="fill"
-                        android:paddingStart="5sp"
-                        android:paddingEnd="5sp">
+                        android:paddingStart="5dp"
+                        android:paddingEnd="5dp">
                     <RatingBar
                             android:layout_height="wrap_content"
                             android:layout_width="wrap_content"
                             android:layout_gravity="end|bottom"
+                            android:paddingBottom="2dp"
                             android:numStars="5"
-                            android:rating="5"
+                            android:progressTint="@color/starActivated"
+                            android:rating="4.5"
                             style="@style/RatingBarTheme"/>
 
                 </FrameLayout>
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                         android:layout_height="wrap_content"
                         android:layout_width="wrap_content"
-                        android:layout_marginStart="5sp"
-                        android:layout_marginEnd="5sp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="5dp"
                         style="@style/HomeFABTheme"
                         app:srcCompat="@drawable/round_menu_book_white_18dp"
                         android:background="@color/colorPrimaryDark"
@@ -65,15 +87,15 @@
                 <TextView
                         android:layout_height="wrap_content"
                         android:layout_width="0dp"
-                        android:layout_marginTop="10sp"
+                        android:layout_marginTop="15dp"
                         android:layout_columnWeight="1"
-                        android:paddingStart="5sp"
-                        android:paddingEnd="5sp"
+                        android:paddingStart="5dp"
+                        android:paddingEnd="5dp"
                         android:textColor="@color/colorText"
                         android:gravity="start|fill"
                         android:text="Genre"/>
                 <com.google.android.material.button.MaterialButton
-                        android:layout_height="wrap_content"
+                        android:layout_height="40dp"
                         android:layout_width="0dp"
                         android:layout_columnWeight="1"
                         android:layout_row="1"
@@ -81,12 +103,12 @@
                         android:layout_gravity="fill"
                         android:text="@string/button_add_book"
                         style="@style/BookButtonTheme"
-                        android:textSize="12sp"
-                        app:cornerRadius="20sp"
-                        app:iconSize="20sp"
-                        app:icon="@drawable/round_add_white_18dp"/>
+                        android:textSize="10sp"
+                        app:cornerRadius="20dp"
+                        app:iconSize="15dp"
+                        app:icon="@drawable/round_add_white_18dp" app:iconPadding="4dp"/>
                 <com.google.android.material.button.MaterialButton
-                        android:layout_height="wrap_content"
+                        android:layout_height="40dp"
                         android:layout_width="0dp"
                         android:layout_columnWeight="1"
                         android:layout_row="1"
@@ -95,9 +117,9 @@
                         android:text="@string/button_info_book"
                         style="@style/BookButtonTheme"
                         android:textColor="@color/colorText"
-                        android:textSize="12sp"
-                        app:cornerRadius="20sp"
-                        app:iconSize="15sp"
+                        android:textSize="10sp"
+                        app:cornerRadius="20dp"
+                        app:iconSize="15dp"
                         app:icon="@drawable/round_info_black_18dp"/>
 
             </GridLayout>

@@ -5,14 +5,14 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:orientation="horizontal"
-        android:paddingStart="15sp"
-        android:paddingEnd="15sp"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
         android:id="@+id/navbar_iconbar"
         android:background="@drawable/navbar_background"
         android:gravity="bottom" android:baselineAligned="false">
     <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
                   android:layout_weight="1"
-                  android:layout_marginBottom="10sp"
+                  android:layout_marginBottom="10dp"
                   android:gravity="center">
         <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:layout_width="wrap_content"
@@ -29,7 +29,7 @@
                   android:layout_weight="1" android:gravity="center">
         <ImageButton
                 android:layout_width="wrap_content"
-                android:layout_height="40sp"
+                android:layout_height="40dp"
                 android:clickable="true"
                 android:focusable="true"
                 style="@style/NavbarTheme"
@@ -40,7 +40,7 @@
                   android:layout_weight="1" android:gravity="center">
         <ImageButton
                 android:layout_width="wrap_content"
-                android:layout_height="40sp"
+                android:layout_height="40dp"
                 android:clickable="true"
                 android:focusable="true"
                 style="@style/NavbarTheme"
@@ -51,7 +51,7 @@
                   android:layout_weight="1" android:gravity="center">
         <ImageButton
                 android:layout_width="wrap_content"
-                android:layout_height="40sp"
+                android:layout_height="40dp"
                 android:clickable="true"
                 android:focusable="true"
                 style="@style/NavbarTheme"
@@ -62,7 +62,7 @@
                   android:layout_weight="1" android:gravity="center">
         <ImageButton
                 android:layout_width="wrap_content"
-                android:layout_height="40sp"
+                android:layout_height="40dp"
                 android:clickable="true"
                 android:focusable="true"
                 style="@style/NavbarTheme"
